@@ -9,7 +9,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 
 function Addcar(props) {
   const [open, setOpen] = useState(false);
-  const [car, setCar] = useState({
+  const [cars, setCars] = useState({
     brand: "",
     model: "",
     color: "",
@@ -17,14 +17,13 @@ function Addcar(props) {
     year: "",
     price: "",
   });
-  
-  
+
   const handleInputChange = (e) => {
-    setCar({ ...car, [e.target.name]: e.target.value });
+    setCars({ ...cars, [e.target.name]: e.target.value });
   };
 
   const addCar = () => {
-    props.saveCars(car);
+    props.saveCar(cars);
     handleClose();
   }
   const handleClickOpen = () => {
@@ -56,7 +55,7 @@ function Addcar(props) {
             autoFocus
             margin="dense"
             name="brand"
-            value={car.brand}
+            value={cars.brand}
             onChange={(e) => handleInputChange(e)}
             label="Brand"
             fullWidth
@@ -64,7 +63,7 @@ function Addcar(props) {
           <TextField
             margin="dense"
             name="model"
-            value={car.model}
+            value={cars.model}
             onChange={(e) => handleInputChange(e)}
             label="Model"
             fullWidth
@@ -72,7 +71,7 @@ function Addcar(props) {
           <TextField
             margin="dense"
             name="color"
-            value={car.color}
+            value={cars.color}
             onChange={(e) => handleInputChange(e)}
             label="Color"
             fullWidth
@@ -80,7 +79,7 @@ function Addcar(props) {
           <TextField
             margin="dense"
             name="fuel"
-            value={car.fuel}
+            value={cars.fuel}
             onChange={(e) => handleInputChange(e)}
             label="Fuel"
             fullWidth
@@ -88,7 +87,7 @@ function Addcar(props) {
           <TextField
             margin="dense"
             name="year"
-            value={car.year}
+            value={cars.year}
             onChange={(e) => handleInputChange(e)}
             label="Year"
             fullWidth
@@ -96,7 +95,7 @@ function Addcar(props) {
           <TextField
             margin="dense"
             name="price"
-            value={car.price}
+            value={cars.price}
             onChange={(e) => handleInputChange(e)}
             label="Price"
             fullWidth
