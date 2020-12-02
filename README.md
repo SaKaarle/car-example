@@ -18,6 +18,8 @@ In the project directory, you can run:
 just a selfreminder :
 `npx create-react-app my-app`
 
+https://material-ui.com/getting-started/installation/
+
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
