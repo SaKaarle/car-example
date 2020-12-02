@@ -8,12 +8,12 @@ In the project directory, you can run:
 
 ### `npm start`
 
-`npx create-react-app my-app
-cd my-app
-npm start
-npm install --save ag-grid-community ag-grid-react
-npm install @material-ui/core
-npm install @material-ui/icons`
+`npx create-react-app my-app`
+`cd my-app`
+`npm start`
+`npm install --save ag-grid-community ag-grid-react`
+`npm install @material-ui/core`
+`npm install @material-ui/icons`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
