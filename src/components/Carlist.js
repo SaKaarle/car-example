@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Addcar from "./Addcar";
 
 //import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
@@ -26,6 +27,8 @@ function Carlist() {
     setOpen(false);
   };
 
+ 
+
   const getCars = () => {
     fetch("https://carstockrest.herokuapp.com/cars")
       .then((response) => response.json())
@@ -45,6 +48,19 @@ function Carlist() {
         .catch((err) => console.error(err));
     }
   };
+
+  const saveCars = (car) => {
+    fetch("https://carstockrest.herokuapp.com/cars", {
+        method: "POST",
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(car)
+      })
+      .then(response => getCars())
+      .catch(err => console.error(err)) 
+}
+
   const columns = [
     { field: "brand", sortable: true, filter: true },
     { field: "model", sortable: true, filter: true },
@@ -71,6 +87,10 @@ function Carlist() {
       className="ag-theme-material"
       style={{ height: 600, width: "90%", margin: "auto" }}
     >
+
+    
+    <Addcar saveCars={saveCars}/>
+    
       <AgGridReact
         rowData={cars}
         columnDefs={columns}
@@ -87,3 +107,4 @@ function Carlist() {
   );
 }
 export default Carlist;
+//<Addcar saveCars={saveCars}/>
