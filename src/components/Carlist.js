@@ -49,13 +49,13 @@ function Carlist() {
     }
   };
 
-  const saveCar = (car) => {
+  const saveCar = (newCar) => {
     fetch("https://carstockrest.herokuapp.com/cars", {
         method: "POST",
         headers:{
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(car)
+        body: JSON.stringify(newCar)
       })
       .then(response => getCars())
       .catch(err => console.error(err)) 
@@ -87,7 +87,7 @@ function Carlist() {
       className="ag-theme-material"
       style={{ height: 600, width: "90%", margin: "auto" }}
     >
-        <Addcar saveCar={saveCar}/>
+        <Addcar tallennaAuto={saveCar}/>
     
       <AgGridReact
         rowData={cars}

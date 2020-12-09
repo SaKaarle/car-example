@@ -14,15 +14,15 @@ import { Toolbar, Typography } from "@material-ui/core";
 function App() {
   return (
     <div className="App">
-      <AppBar>
+      <AppBar position="static">
         <Toolbar>
           <Typography variant ="h6">
             Carshop
           </Typography>
         </Toolbar>
       </AppBar>
-      
       <Carlist />
+      
     </div>
   );
 }

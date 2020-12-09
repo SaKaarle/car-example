@@ -21,9 +21,9 @@ function Addcar(props) {
   const handleInputChange = (e) => {
     setCars({ ...cars, [e.target.name]: e.target.value });
   };
-
-  const addCar = () => {
-    props.saveCar(cars);
+  //muunsin arvoja että ymmärrän mitä ihmettä olen edes tekemässä PROPS:eilla
+  const handleSave = () => {
+    props.tallennaAuto(cars);
     handleClose();
   }
   const handleClickOpen = () => {
@@ -34,10 +34,14 @@ function Addcar(props) {
     setOpen(false);
   };
 
+
+  //Button menee piiloon jostain syystä???
+  //jos ei laita 5* niin se on piilossa. Ennen Margin oli = 10. nyt vaihdoin sen "5*" että se näkyy
+
   return (
     <div>
       <Button
-        style={{ margin: 10 }}
+        style={{ margin: "5*" }}
         variant="outlined"
         color="primary"
         onClick={handleClickOpen}
@@ -105,7 +109,7 @@ function Addcar(props) {
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={addCar} color="primary">
+          <Button onClick={handleSave} color="primary">
             Save
           </Button>
         </DialogActions>
