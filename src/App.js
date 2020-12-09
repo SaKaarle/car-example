@@ -1,6 +1,8 @@
 import "./App.css";
 import Carlist from "./components/Carlist";
 //import Addcar from "./components/Addcar";
+import AppBar from '@material-ui/core/AppBar';
+import { Toolbar, Typography } from "@material-ui/core";
 
 // npx create-react-app my-app
 // cd my-app
@@ -12,6 +14,13 @@ import Carlist from "./components/Carlist";
 function App() {
   return (
     <div className="App">
+      <AppBar>
+        <Toolbar>
+          <Typography variant ="h6">
+            Carshop
+          </Typography>
+        </Toolbar>
+      </AppBar>
       
       <Carlist />
     </div>
