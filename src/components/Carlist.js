@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Addcar from "./Addcar";
+import EditCar from './EditCar';
+
 
 //import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
@@ -49,6 +51,20 @@ function Carlist() {
     }
   };
 
+  const updateCar = (link, car) =>{
+    
+    fetch(link, {
+      method: "PUT",
+      headers:{
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(car)
+    })
+      .then(_ => getCars())
+      .catch((err) => console.error(err));
+
+  }
+
   const saveCar = (newCar) => {
     fetch("https://carstockrest.herokuapp.com/cars", {
         method: "POST",
@@ -70,6 +86,16 @@ function Carlist() {
     { field: "price", sortable: true, filter: true },
 
     {
+
+      headerName: "",
+      field: "_links.self.href",
+      width: 90,
+      cellRendererFramework: (params) => ( <EditCar updateCar={updateCar} params={params}/>
+      ),
+
+    },
+
+    {
       headerName: "",
       field: "_links.self.href",
       width: 90,
@@ -78,7 +104,8 @@ function Carlist() {
           <DeleteIcon fontSize="small" />
         </IconButton>
       ),
-    },
+    }
+
   ];
 
   return (
